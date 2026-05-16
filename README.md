@@ -3,7 +3,7 @@
 A high-performance React application for live sports fan engagement, featuring real-time match state synchronization, predictive gameplay, and global leaderboards.
 
 ## 🚀 Live Demo
-**URL:** [https://pulse-elite-155191315903.us-central1.run.app](https://pulse-elite-155191315903.us-central1.run.app)
+**URL:** [https://pulse-elite-4jyzhezt3a-uc.a.run.app](https://pulse-elite-4jyzhezt3a-uc.a.run.app)
 
 ---
 
