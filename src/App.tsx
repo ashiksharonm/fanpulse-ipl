@@ -38,16 +38,16 @@ export default function App() {
         );
       case 'ranks':
         return (
-          <div className="w-full flex flex-col gap-6 max-w-4xl mx-auto">
+          <div className="w-full flex flex-col gap-6 max-w-5xl mx-auto">
             <Scoreboard match={match} />
             <Leaderboard points={userPoints} />
           </div>
         );
       case 'predict':
         return (
-          <div className="w-full flex flex-col gap-6 max-w-2xl mx-auto">
+          <div className="w-full flex flex-col gap-6 max-w-4xl mx-auto">
             <Scoreboard match={match} />
-            <div className="flex-grow flex items-stretch min-h-[500px]">
+            <div className="w-full flex-grow flex flex-col min-h-[600px]">
               <PredictionZone 
                 timeLeft={timeLeft} 
                 isLocked={isLocked} 
@@ -89,7 +89,7 @@ export default function App() {
       <Header points={userPoints} />
       <Sidebar activeTab={activeTab} onTabChange={setActiveTab} />
       
-      <main className="pt-24 pb-lg px-margin-mobile lg:pl-[288px] lg:pr-margin-desktop min-h-screen flex flex-col lg:flex-row gap-lg">
+      <main className={`pt-24 pb-lg px-margin-mobile lg:pl-[288px] lg:pr-margin-desktop min-h-screen flex flex-col gap-lg ${activeTab === 'live' ? 'lg:flex-row' : ''}`}>
         {renderContent()}
       </main>
 
