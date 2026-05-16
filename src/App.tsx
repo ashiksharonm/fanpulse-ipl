@@ -30,43 +30,47 @@ export default function App() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                <Leaderboard points={userPoints} />
                <div className="glass-card p-lg flex flex-col items-center justify-center text-center">
-                  <h3 className="font-display text-xl font-bold mb-2">Upcoming Challenges</h3>
-                  <p className="text-on-surface-variant text-sm tracking-wide">Stay tuned for the next over!</p>
+                  <h3 className="font-display text-xl font-bold mb-2 tracking-tighter uppercase italic">Next Challenge</h3>
+                  <p className="text-on-surface-variant text-sm tracking-wide font-medium">Predict the next boundary to win 500 XP!</p>
                </div>
             </div>
           </div>
         );
       case 'ranks':
         return (
-          <div className="w-full max-w-4xl mx-auto">
+          <div className="w-full flex flex-col gap-6 max-w-4xl mx-auto">
+            <Scoreboard match={match} />
             <Leaderboard points={userPoints} />
           </div>
         );
       case 'predict':
         return (
-          <div className="w-full max-w-xl mx-auto">
-            <PredictionZone 
-              timeLeft={timeLeft} 
-              isLocked={isLocked} 
-              onPredict={resolveDelivery} 
-              feedback={feedback}
-              isFlashActive={isFlashActive}
-            />
+          <div className="w-full flex flex-col gap-6 max-w-2xl mx-auto">
+            <Scoreboard match={match} />
+            <div className="flex-grow flex items-stretch min-h-[500px]">
+              <PredictionZone 
+                timeLeft={timeLeft} 
+                isLocked={isLocked} 
+                onPredict={resolveDelivery} 
+                feedback={feedback}
+                isFlashActive={isFlashActive}
+              />
+            </div>
           </div>
         );
       case 'live':
       default:
         return (
           <>
-            {/* LEFT COLUMN (60%) */}
+            {/* LEFT COLUMN (62%) */}
             <div className="w-full lg:w-[62%] flex flex-col gap-6">
               <Scoreboard match={match} />
               <PitchHeatmap lastBall={lastBall} />
               <Leaderboard points={userPoints} />
             </div>
 
-            {/* RIGHT COLUMN (40%) */}
-            <div className="w-full lg:w-[38%] flex min-h-[600px] lg:min-h-0">
+            {/* RIGHT COLUMN (38%) */}
+            <div className="w-full lg:w-[38%] flex flex-col min-h-[600px] lg:min-h-0">
               <PredictionZone 
                 timeLeft={timeLeft} 
                 isLocked={isLocked} 
